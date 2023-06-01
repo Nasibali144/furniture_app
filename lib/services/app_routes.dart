@@ -20,7 +20,7 @@ class AppRoutes {
 
   static String? get initialRoute {
     if(!isAuth) {
-      return SignUpScreen.id;
+      return BoardingScreen.id;
     } else {
       return HomeScreen.id;
     }

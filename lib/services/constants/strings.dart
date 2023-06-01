@@ -24,7 +24,7 @@ enum Strings {
   lamb('Lamb'),
   make('MAKE YOUR'),
   home('HOME BEAUTIFUL'),
-  theIntroText("The best simple place where you\ndiscover most wonderful furnitures\nand make your home beautiful"),
+  theIntroText("The best simple place where you discover most wonderful furnitures and make your home beautiful"),
   getStarted('Get Started'),
   shippingAddress("Shipping Address"),
   useAsTheShippingAddress("Use as the shipping address"),
