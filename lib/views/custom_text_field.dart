@@ -8,11 +8,13 @@ import 'package:furniture_app/services/theme/text_styles.dart';
 class CustomTextField extends StatefulWidget {
   final String labelText;
   final bool isObscure;
+  final TextEditingController? controller;
 
   const CustomTextField({
     super.key,
     required this.labelText,
     required this.isObscure,
+    this.controller,
   });
 
   @override
@@ -31,6 +33,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
     const eye = CupertinoIcons.eye;
     return TextField(
+      controller: widget.controller,
       decoration: InputDecoration(
         floatingLabelBehavior: FloatingLabelBehavior.always,
         labelText: widget.labelText,
