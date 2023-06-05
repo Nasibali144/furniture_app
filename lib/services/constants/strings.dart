@@ -69,7 +69,8 @@ enum Strings {
   data("20/03/2020"),
   quantityNum("03"),
   price("\$150"),
-  makeHome('Make home');
+  makeHome('Make home'),
+  notification('NOTIFICATION');
 
   const Strings(this.text);
 

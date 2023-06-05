@@ -5,6 +5,9 @@ import 'package:furniture_app/views/home_components/bottom_navigation_bar.dart';
 import 'package:furniture_app/views/home_components/products_components.dart';
 import 'package:furniture_app/views/home_components/tab_bar_components.dart';
 
+import 'notification_screen.dart';
+import 'profile_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   static const id = "/home";
 
@@ -23,6 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
         children: const [
           MainPage(),
           FavoriteScreen(),
+          NotificationScreen(),
+          ProfileScreen(),
         ],
       ),
       bottomNavigationBar: const CustomBottomNavigationBar(),
