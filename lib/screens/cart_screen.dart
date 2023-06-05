@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_app/controllers/cart_controller.dart';
+import 'package:furniture_app/screens/check_out_screen.dart';
 import 'package:furniture_app/services/constants/colors.dart';
 import 'package:furniture_app/services/constants/images.dart';
 import 'package:furniture_app/services/constants/strings.dart';
@@ -125,7 +126,9 @@ class _CartScreenState extends State<CartScreen> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12.5),
                       child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).pushNamed(CheckOutScreen.id);
+                          },
                           style: ElevatedButton.styleFrom(
                               fixedSize:
                                   Size(MediaQuery.of(context).size.width, 60),

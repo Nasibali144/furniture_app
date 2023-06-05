@@ -74,7 +74,7 @@ class ProductController extends BaseController {
       context: context,
       builder: (context) => BottomSheet(
         onClosing: () {},
-        builder: (context) => Container(
+        builder: (context) => SizedBox(
           width: MediaQuery.of(context).size.width * .8,
           height: 200,
           child: Column(

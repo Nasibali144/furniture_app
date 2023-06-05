@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/controllers/product_controller.dart';
 
-import '../../services/constants/colors.dart';
-import '../../services/constants/images.dart';
 import 'product_image.dart';
 
 class ProductScreenImage extends StatelessWidget {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_app/screens/shipping_screen.dart';
 import 'package:furniture_app/services/constants/images.dart';
 import 'package:furniture_app/services/constants/svg_icons.dart';
 import 'package:furniture_app/services/constants/strings.dart';
@@ -73,6 +74,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             //2-Card
             MyCard(
+              onTap: () {
+                Navigator.of(context).pushNamed(ShippingScreen.id);
+              },
               titleChild: Strings.shippingAddress.text,
               subtitleChild: "03 Addresses",
             ),
@@ -129,9 +133,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
 class MyCard extends StatelessWidget {
   final String titleChild;
   final String subtitleChild;
+  final void Function()? onTap;
 
   const MyCard(
-      {Key? key, required this.titleChild, required this.subtitleChild})
+      {Key? key, this.onTap ,required this.titleChild, required this.subtitleChild})
       : super(key: key);
 
   @override
@@ -143,7 +148,7 @@ class MyCard extends StatelessWidget {
       child: SizedBox(
         height: 80,
         child: ListTile(
-
+          onTap: onTap,
           style: ListTileStyle.list,
           title: Padding(
             padding: const EdgeInsets.symmetric(vertical: 3),

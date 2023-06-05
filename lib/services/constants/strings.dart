@@ -40,7 +40,7 @@ enum Strings {
   ratingAndReview("RATING & REVIEW"),
   minimalStand("Minimal Stand"),
   reviews("reviews"),
-  writeReviews("Write a reviews"),
+  writeReviews("Write a review"),
   profile("Profile"),
   myOrders("My Orders"),
   addresses("Addresses"),
@@ -70,6 +70,8 @@ enum Strings {
   quantityNum("03"),
   price("\$150"),
   makeHome('Make home'),
+  brunoFernandes("Bruno Fernandes"),
+  appBarCheckOut("CHECK-OUT"),
   notification('NOTIFICATION');
 
   const Strings(this.text);

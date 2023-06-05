@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:furniture_app/controllers/product_controller.dart';
-import 'package:furniture_app/models/product_model.dart';
+import 'package:furniture_app/screens/review_screen.dart';
 
 import '../../services/constants/colors.dart';
 import '../../services/constants/strings.dart';
@@ -82,28 +80,33 @@ class ProductScreenData extends StatelessWidget {
               ],
             ),
             SizedBox(height: 10 * height),
-            GestureDetector(
-              onTap: () => controller.btnReview(context),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 20 * width,
-                    height: 20 * height,
-                    child: SvgIcon.star,
-                  ),
-                  SizedBox(width: 10 * width),
-                  const Text(
+            Row(
+              children: [
+                SizedBox(
+                  width: 20 * width,
+                  height: 20 * height,
+                  child: SvgIcon.star,
+                ),
+                SizedBox(width: 10 * width),
+                GestureDetector(
+                  onTap: () => controller.btnReview(context),
+                  child: const Text(
                     "4.5",
                     style: AppTextStyles.nunitoSansBold18,
                   ),
-                  SizedBox(width: 20 * width),
-                  Text(
+                ),
+                SizedBox(width: 20 * width),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushNamed(ReviewScreen.id);
+                  },
+                  child: Text(
                     "(50 reviews)",
                     style: AppTextStyles.nunitoSansBold14
                         .copyWith(color: AppColors.c808080.color),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             SizedBox(height: 14 * height),
             Text(

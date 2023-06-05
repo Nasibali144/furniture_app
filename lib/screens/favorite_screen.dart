@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:furniture_app/screens/congrats_screen.dart';
 import 'package:furniture_app/services/constants/images.dart';
 import 'package:furniture_app/services/constants/svg_icons.dart';
 import 'package:furniture_app/services/constants/colors.dart';
-import 'package:furniture_app/services/constants/icons.dart';
 import 'package:furniture_app/services/constants/strings.dart';
 import 'package:furniture_app/services/theme/text_styles.dart';
 

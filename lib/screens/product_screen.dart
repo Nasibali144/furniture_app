@@ -4,12 +4,10 @@ import 'package:furniture_app/models/category_model.dart';
 import 'package:furniture_app/models/product_model.dart';
 import 'package:furniture_app/models/review_model.dart';
 import 'package:furniture_app/services/constants/colors.dart';
-import 'package:furniture_app/services/theme/text_styles.dart';
 import 'package:furniture_app/views/product_components/product_screen_bottom_button.dart';
 import 'package:furniture_app/views/product_components/product_screen_data.dart';
 import 'package:furniture_app/views/product_components/product_screen_image.dart';
 
-import '../../services/constants/images.dart';
 
 class ProductScreen extends StatefulWidget {
   static const id = "/product";
