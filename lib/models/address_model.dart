@@ -48,7 +48,7 @@ class Address implements Comparable<Address> {
       region: json["region"] as String,
       country: json["country"] as String);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, Object?> toJson() => {
         "id": id,
         "usedld": usedld,
         "createdAt": createdAt,
