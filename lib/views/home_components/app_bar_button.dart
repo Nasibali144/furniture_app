@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_app/screens/cart_screen.dart';
 import 'package:furniture_app/services/constants/colors.dart';
 import 'package:furniture_app/services/constants/strings.dart';
 import 'package:furniture_app/services/constants/svg_icons.dart';
@@ -46,7 +47,9 @@ class _CustomAppBarState extends State<CustomAppBar> {
       elevation: 0,
       actions: [
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).pushNamed(CartScreen.id);
+          },
           child: Padding(
             padding: const EdgeInsets.all(15),
             child: SvgIcon.cart,

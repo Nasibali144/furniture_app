@@ -15,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,17 +42,15 @@ class MainPage extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Padding(
-              padding: EdgeInsets.only(left: 20, top: 10),
+              padding: EdgeInsets.only(left: 20, top: 10 ,right: 20),
               child: TabBarComponents(),
             ),
           ),
           Expanded(
-            flex: 9,
+            flex: 10,
             child: Padding(
               padding: EdgeInsets.only(left: 20, right: 20),
-              child: SingleChildScrollView(
-                child: CustomProduct(),
-              ),
+              child: CustomProduct(),
             ),
           ),
         ],
