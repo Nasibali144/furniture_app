@@ -24,23 +24,25 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     pageController = PageController();
-    controller = HomeController(updater: setState, pageController: pageController);
+    controller =
+        HomeController(updater: setState, pageController: pageController);
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
         controller: pageController,
         onPageChanged: (index) => controller.buttonPageView(index),
-        children:  [
+        children: [
           MainPage(controller: controller),
           const FavoriteScreen(),
           const NotificationScreen(),
           const ProfileScreen(),
         ],
       ),
-      bottomNavigationBar:  CustomBottomNavigationBar(controller: controller),
+      bottomNavigationBar: CustomBottomNavigationBar(controller: controller),
     );
   }
 }
@@ -55,17 +57,15 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-
-
-
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar:  CustomAppBar(controller: widget.controller),
+      appBar: CustomAppBar(controller: widget.controller),
       body: Column(
         children: [
           Expanded(
-            flex: 2,
+            flex: size.height > 550 ? 2 : 6,
             child: Padding(
               padding: const EdgeInsets.only(left: 20, top: 10, right: 20),
               child: TabBarComponents(controller: widget.controller),
@@ -75,7 +75,9 @@ class _MainPageState extends State<MainPage> {
             flex: 9,
             child: Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
-              child: CustomProduct(controller: widget.controller,),
+              child: CustomProduct(
+                controller: widget.controller,
+              ),
             ),
           ),
         ],

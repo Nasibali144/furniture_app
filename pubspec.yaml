@@ -28,6 +28,11 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/images/images_product_armchair/
+    - assets/images/images_product_bed/
+    - assets/images/images_product_chair/
+    - assets/images/images_product_lamb/
+    - assets/images/images_product_table/
 
   fonts:
     - family: Gelasio
