@@ -142,9 +142,13 @@ class _SignInScreenState extends State<SignInScreen> {
 
                             // Button: Sign in
                             const SizedBox(height: 40),
-                            LoginButton(
-                              onPressed: () => controller.signIn(context),
-                              text: Strings.signIn.text,
+                            Builder(
+                              builder: (context) {
+                                return LoginButton(
+                                  onPressed: () => controller.signIn(context),
+                                  text: Strings.signIn.text,
+                                );
+                              }
                             ),
 
                             // Text: Sign up

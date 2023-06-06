@@ -1,26 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_app/models/user_model.dart';
 import 'package:furniture_app/services/constants/colors.dart';
 import 'package:furniture_app/services/constants/svg_icons.dart';
+import 'package:furniture_app/services/data/database/users.dart';
 import 'package:furniture_app/services/theme/text_styles.dart';
-import '../services/constants/strings.dart';
+import 'package:furniture_app/services/constants/strings.dart';
 
 List<String> address = [
   "25 rue Robert Latouche, Nice, 06200, Côte D’azur, France",
   "18 rue Jean Medecin, Nice, 06200, Côte D’azur, France",
   "20 rue Promenade, Nice, 06200, Côte D’azur, France",
 ];
-
-
-class User{
- final String name;
- final List<String> address;
-
- User({required this.name, required this.address, });
-}
-
-final user = User(name: 'Bruno Fernandez', address: address, );
-
-
 
 
 class ShippingScreen extends StatefulWidget {
@@ -44,7 +34,7 @@ class _ShippingScreenState extends State<ShippingScreen> {
       /// #body
       body: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20),
-        child: CustomListView(user: user,),
+        child: CustomListView(user: usersList.first,),
       ),
 
       /// #FloatingActionButtonLocation
@@ -108,7 +98,7 @@ class CustomListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: user.address.length,
+      itemCount: address.length,
       shrinkWrap: true,
       itemBuilder: (context, i) {
 
@@ -126,7 +116,7 @@ class CustomListView extends StatelessWidget {
             const SizeHeight(),
 
             /// #full person address
-            CustomAddress(userName: user.name, address: user.address[i]),
+            CustomAddress(userName: user.name, address: address[i]),
           ],
         );
       },
