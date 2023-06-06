@@ -1,9 +1,14 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:furniture_app/controllers/base_controller.dart';
+import 'package:furniture_app/models/cart_item_model.dart';
 import 'package:furniture_app/models/product_model.dart';
 import 'package:furniture_app/services/constants/colors.dart';
+import 'package:furniture_app/services/constants/strings.dart';
 import 'package:furniture_app/services/theme/text_styles.dart';
+import 'package:furniture_app/views/product_components/text_button.dart';
 
 class ProductController extends BaseController {
   void Function(void Function())? updater;
@@ -13,6 +18,7 @@ class ProductController extends BaseController {
   int count = 1;
   double sum = 0;
   bool isFavourite = false;
+  int color = 0;
 
   ProductController({
     this.updater,
@@ -47,25 +53,21 @@ class ProductController extends BaseController {
   }
 
   void addToCard(BuildContext context) async {
-    isLoading = true;
     updater!(() {});
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        backgroundColor: AppColors.c303030.color,
-        content: const Text(
-          "Successfully Added",
-          style: AppTextStyles.nunitoSansBold14,
-        ),
-      ),
+    final cart = CartItem(
+      id: Random().nextInt(100).toString(),
+      product: product,
+      total: sum,
+      createAt: DateTime.now().toString(),
+      modifyAt: DateTime.now().toString(),
+      userId: "01",
+      quantity: count,
+      color: color,
     );
-
-    await Future.delayed(const Duration(seconds: 2));
-    isLoading = false;
+    print(cart);
+    showSuccessMessage(context);
     updater!(() {});
   }
-
-
 
   // Rating Review
   void btnReview(BuildContext context) {
@@ -79,6 +81,7 @@ class ProductController extends BaseController {
           height: 200,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               RatingBar.builder(
                 initialRating: 3,
@@ -95,8 +98,24 @@ class ProductController extends BaseController {
                   print(rating);
                 },
               ),
+              AppTextButton(
+                label: Strings.addToCart.text,
+                onPress: () => Navigator.pop(context),
+              ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  void showSuccessMessage(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: AppColors.c303030,
+        content: Text(
+          Strings.success.text,
+          style: AppTextStyles.nunitoSansBold14,
         ),
       ),
     );

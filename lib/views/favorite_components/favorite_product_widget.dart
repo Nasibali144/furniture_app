@@ -65,7 +65,7 @@ class _ProductWidgetState extends State<ProductWidget> {
               Text(
                 widget.product.name,
                 style: AppTextStyles.nunitoSansSemiBold14.copyWith(
-                  color: AppColors.c606060.color,
+                  color: AppColors.c606060,
                 ),
               ),
               const SizedBox(
@@ -74,7 +74,7 @@ class _ProductWidgetState extends State<ProductWidget> {
               Text(
                 widget.product.price.toString(),
                 style: AppTextStyles.nunitoSansBold18.copyWith(
-                  color: AppColors.c303030.color,
+                  color: AppColors.c303030,
                 ),
               ),
             ],
@@ -96,7 +96,7 @@ class _ProductWidgetState extends State<ProductWidget> {
                 width: 34,
                 height: 34,
                 decoration: BoxDecoration(
-                  color: AppColors.cE0E0E0.color,
+                  color: AppColors.cE0E0E0,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: GestureDetector(

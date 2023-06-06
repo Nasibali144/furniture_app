@@ -11,19 +11,17 @@ import 'icon_button.dart';
 class ProductScreenData extends StatelessWidget {
   const ProductScreenData({
     super.key,
-
     required this.controller,
   });
-
 
   final ProductController controller;
 
   @override
   Widget build(BuildContext context) {
-        double height = MediaQuery.of(context).size.height / 812;
+    double height = MediaQuery.of(context).size.height / 812;
     double width = MediaQuery.of(context).size.width / 375;
     return Expanded(
-      flex: 3,
+      flex: MediaQuery.of(context).size.height > 900 ? 5 : 6,
       child: Padding(
         padding: EdgeInsets.only(
             left: 25 * width,
@@ -51,11 +49,9 @@ class ProductScreenData extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       AppIconButton(
-                        w: width,
-                        h: height,
-                        icon: Icon(
+                        icon: const Icon(
                           CupertinoIcons.add,
-                          color: AppColors.c909090.color,
+                          color: AppColors.c909090,
                           size: 25,
                         ),
                         onPress: controller.increment,
@@ -65,11 +61,9 @@ class ProductScreenData extends StatelessWidget {
                         style: AppTextStyles.nunitoSansBold18,
                       ),
                       AppIconButton(
-                        w: width,
-                        h: height,
-                        icon: Icon(
+                        icon: const Icon(
                           CupertinoIcons.minus,
-                          color: AppColors.c909090.color,
+                          color: AppColors.c909090,
                           size: 25,
                         ),
                         onPress: controller.decrement,
@@ -103,7 +97,7 @@ class ProductScreenData extends StatelessWidget {
                   child: Text(
                     "(50 reviews)",
                     style: AppTextStyles.nunitoSansBold14
-                        .copyWith(color: AppColors.c808080.color),
+                        .copyWith(color: AppColors.c808080),
                   ),
                 ),
               ],

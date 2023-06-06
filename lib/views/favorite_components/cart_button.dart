@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../controllers/favorite_controller.dart';
@@ -20,8 +19,8 @@ class CartButton extends StatelessWidget {
       onPressed: () => controller.goToCongrats(context),
       style: ElevatedButton.styleFrom(
         elevation: 5,
-        shadowColor: AppColors.c303030.color,
-        backgroundColor: AppColors.c303030.color,
+        shadowColor: AppColors.c303030,
+        backgroundColor: AppColors.c303030,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5),
         ),
@@ -30,7 +29,7 @@ class CartButton extends StatelessWidget {
       child: Text(
         Strings.addAll.text,
         style: AppTextStyles.nunitoSansSemiBold18.copyWith(
-          color: AppColors.cFFFFFF.color,
+          color: AppColors.cFFFFFF,
         ),
       ),
     );

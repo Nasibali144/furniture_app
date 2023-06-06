@@ -72,8 +72,8 @@ class _ProductImagesState extends State<ProductImages> {
                         margin: const EdgeInsets.only(right: 10),
                         decoration: BoxDecoration(
                           color: page == i
-                              ? AppColors.c303030.color
-                              : AppColors.cF0F0F0.color,
+                              ? AppColors.c303030
+                              : AppColors.cF0F0F0,
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
@@ -95,7 +95,7 @@ class _ProductImagesState extends State<ProductImages> {
                   height: 50 * h,
                   margin: EdgeInsets.only(left: 7 * w, top: 59 * h),
                   decoration: BoxDecoration(
-                    color: AppColors.cFFFFFF.color,
+                    color: AppColors.cFFFFFF,
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
@@ -105,20 +105,22 @@ class _ProductImagesState extends State<ProductImages> {
                       ),
                     ],
                   ),
-                  child: Icon(
+                  child: const Icon(
                     Icons.chevron_left_outlined,
                     size: 40,
-                    color: AppColors.c303030.color,
+                    color: AppColors.c303030,
                   ),
                 ),
               ),
               ProductImageColors(
                   colors: widget.controller.product.colors,
+                  controller: widget.controller,
                   onChanged: (newColorPage) {
                     page = 0;
                     pageController.jumpToPage(page);
                     setState(() => colorPage = newColorPage);
                   }),
+
             ],
           ),
         )
@@ -130,10 +132,12 @@ class _ProductImagesState extends State<ProductImages> {
 class ProductImageColors extends StatefulWidget {
   final List<int> colors;
   final void Function(int value) onChanged;
+  final ProductController controller;
   const ProductImageColors({
     super.key,
     required this.colors,
     required this.onChanged,
+    required this.controller,
   });
 
   @override
@@ -148,10 +152,10 @@ class _ProductImageColorsState extends State<ProductImageColors> {
     return Container(
       width: 64 * width,
       height: 192 * height,
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       margin: EdgeInsets.only(top: 33 * height),
       decoration: BoxDecoration(
-        color: AppColors.cFFFFFF.color,
+        color: AppColors.cFFFFFF,
         borderRadius: BorderRadius.circular(40),
         boxShadow: [
           BoxShadow(
@@ -162,6 +166,7 @@ class _ProductImageColorsState extends State<ProductImageColors> {
         ],
       ),
       child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -169,6 +174,7 @@ class _ProductImageColorsState extends State<ProductImageColors> {
               GestureDetector(
                 onTap: () {
                   widget.onChanged(i);
+                  widget.controller.color = i;
                 },
                 child: Container(
                   width: 34 * width,

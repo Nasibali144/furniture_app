@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:furniture_app/controllers/favorite_controller.dart';
 import 'package:furniture_app/services/constants/svg_icons.dart';
 import 'package:furniture_app/services/constants/colors.dart';
@@ -53,7 +51,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         title: Text(
           Strings.favorite.text,
           style: AppTextStyles.merriWeatherBold18.copyWith(
-            color: AppColors.c303030.color,
+            color: AppColors.c303030,
           ),
         ),
         centerTitle: true,
@@ -77,10 +75,10 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                 child: ListView.separated(
                   itemCount: productsList.length,
                   separatorBuilder: (BuildContext context, int index) =>
-                      Divider(
+                      const Divider(
                     thickness: 2,
                     height: 24,
-                    color: AppColors.cF0F0F0.color,
+                    color: AppColors.cF0F0F0,
                   ),
                   itemBuilder: (BuildContext context, int index) {
                     return ProductWidget(

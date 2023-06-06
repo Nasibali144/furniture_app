@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:furniture_app/screens/boarding_screen.dart';
 import 'package:furniture_app/screens/cart_screen.dart';
 import 'package:furniture_app/screens/check_out_screen.dart';
@@ -42,4 +43,16 @@ class AppRoutes {
     SignUpScreen.id : (context) => const SignUpScreen(),
     SignInScreen.id : (context) => const SignInScreen(),
   };
+
+  static void pushReplaceSignIn(BuildContext context) {
+    Navigator.pushReplacementNamed(context, SignInScreen.id);
+  }
+
+  static void pushReplaceSignUp(BuildContext context) {
+    Navigator.of(context).pushReplacementNamed(SignUpScreen.id);
+  }
+
+  static void pushReplaceHome(BuildContext context) {
+    Navigator.of(context).pushReplacementNamed(HomeScreen.id);
+  }
 }

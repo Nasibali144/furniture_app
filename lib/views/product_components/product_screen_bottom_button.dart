@@ -15,7 +15,6 @@ class ProductScreenBottomButton extends StatefulWidget {
     required this.controller,
   });
 
-
   @override
   State<ProductScreenBottomButton> createState() =>
       _ProductScreenBottomButtonState();
@@ -27,6 +26,7 @@ class _ProductScreenBottomButtonState extends State<ProductScreenBottomButton> {
     double height = MediaQuery.of(context).size.height / 812;
     double width = MediaQuery.of(context).size.width / 375;
     return Expanded(
+      flex: 2,
       child: Padding(
         padding: EdgeInsets.only(
           left: 20 * width,
@@ -44,8 +44,8 @@ class _ProductScreenBottomButtonState extends State<ProductScreenBottomButton> {
                   : SvgIcon.markerDark,
               onPress: widget.controller.btnFavourite,
               backgroundColor: widget.controller.isFavourite
-                  ? AppColors.c303030.color
-                  : AppColors.cE0E0E0.color.withOpacity(0.3),
+                  ? AppColors.c303030
+                  : AppColors.cE0E0E0.withOpacity(0.3),
             ),
             AppTextButton(
               label: Strings.addToCart.text,

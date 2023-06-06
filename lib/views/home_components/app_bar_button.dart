@@ -33,13 +33,13 @@ class _CustomAppBarState extends State<CustomAppBar> {
           Text(
             Strings.makeHome.text,
             style: AppTextStyles.gelasioSemiBold18.copyWith(
-              color: AppColors.c909090.color,
+              color: AppColors.c909090,
             ),
           ),
           Text(
             Strings.beautiful.text,
             style: AppTextStyles.gelasioBold30.copyWith(
-                color: AppColors.c303030.color,
+                color: AppColors.c303030,
                 fontSize: 18
             ),
           ),

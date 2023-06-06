@@ -23,13 +23,9 @@ class CartController extends BaseController {
   void decrement(
     int index,
   ) {
-    if (cart.carts[index].quantity > 0) {
+    if (cart.carts[index].quantity > 1) {
       cart.carts[index].quantity--;
       cart.carts[index].total -= cart.carts[index].product.price;
-      updater!(() {});
-    }
-    if (cart.carts[index].quantity == 0) {
-      cart.carts.removeAt(index);
       updater!(() {});
     }
   }
@@ -59,11 +55,11 @@ class CartController extends BaseController {
                 Navigator.pop(context);
                 updater!(() {});
               },
-              child: Text("Yes",
+              child: const Text("Yes",
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.cEB5757.color)),
+                      color: AppColors.cEB5757)),
             ),
             TextButton(
               onPressed: () {

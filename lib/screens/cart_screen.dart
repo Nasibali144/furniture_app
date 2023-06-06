@@ -59,8 +59,10 @@ class _CartScreenState extends State<CartScreen> {
         modifyAt: "",
         userId: "123",
         quantity: 5,
+        color: 0,
       ),
       CartItem(
+        color: 0,
         id: "02",
         product: Product(
           id: "02",
@@ -92,6 +94,7 @@ class _CartScreenState extends State<CartScreen> {
         quantity: 5,
       ),
       CartItem(
+        color: 0,
         id: "03",
         product: Product(
           id: "03",
@@ -123,6 +126,7 @@ class _CartScreenState extends State<CartScreen> {
         quantity: 5,
       ),
       CartItem(
+        color: 0,
         id: "04",
         product: Product(
           id: "04",
@@ -173,7 +177,7 @@ class _CartScreenState extends State<CartScreen> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
           appBar: AppBar(
-            backgroundColor: AppColors.cFFFFFF.color,
+            backgroundColor: AppColors.cFFFFFF,
             elevation: 0,
             leading: GestureDetector(
               onTap: () => controller.getBack(context),
@@ -186,7 +190,7 @@ class _CartScreenState extends State<CartScreen> {
             title: Text(
               Strings.myCart.text,
               style: AppTextStyles.merriWeatherBold18.copyWith(
-                color: AppColors.c303030.color,
+                color: AppColors.c303030,
               ),
             ),
             centerTitle: true,
@@ -223,7 +227,7 @@ class _CartScreenState extends State<CartScreen> {
                       height: 55,
                       child: DecoratedBox(
                           decoration: BoxDecoration(
-                              color: AppColors.cFFFFFF.color,
+                              color: AppColors.cFFFFFF,
                               borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -244,11 +248,11 @@ class _CartScreenState extends State<CartScreen> {
                                 child: DecoratedBox(
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(12),
-                                      color: AppColors.c303030.color),
-                                  child: Center(
+                                      color: AppColors.c303030),
+                                  child: const Center(
                                       child: Icon(
                                     CupertinoIcons.chevron_forward,
-                                    color: AppColors.cFFFFFF.color,
+                                    color: AppColors.cFFFFFF,
                                   )),
                                 ),
                               )
@@ -265,7 +269,7 @@ class _CartScreenState extends State<CartScreen> {
                           style: ElevatedButton.styleFrom(
                               fixedSize:
                                   Size(MediaQuery.of(context).size.width, 60),
-                              backgroundColor: AppColors.c303030.color,
+                              backgroundColor: AppColors.c303030,
                               elevation: 15,
                               shadowColor: Colors.black),
                           child: Text(

@@ -1,5 +1,7 @@
 import 'package:furniture_app/models/user_model.dart';
 
+User? currentUser;
+
 final user1 = User(
   userId: "0",
   name: "Nasibali",

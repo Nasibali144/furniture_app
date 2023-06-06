@@ -1,4 +1,3 @@
-import 'package:furniture_app/models/category_model.dart';
 import 'package:furniture_app/models/product_model.dart';
 
 import 'categories.dart';

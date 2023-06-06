@@ -35,7 +35,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   color: (notificationDatabase[index].data as MessageModel)
                               .status ==
                           "New"
-                      ? AppColors.cF0F0F0.color
+                      ? AppColors.cF0F0F0
                       : Colors.white,
                   border: (index + 1 != notificationDatabase.length &&
                           (notificationDatabase[index].data as MessageModel)
@@ -43,9 +43,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
                               "New" &&
                           notificationDatabase[index].data is MessageModel &&
                           notificationDatabase[index + 1].data is MessageModel)
-                      ? Border(
+                      ? const Border(
                           bottom: BorderSide(
-                            color: AppColors.cF0F0F0.color,
+                            color: AppColors.cF0F0F0,
                           ),
                         )
                       : null,
@@ -111,7 +111,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                     maxLines: 3,
                                     style: AppTextStyles.nunitoSansRegular12
                                         .copyWith(
-                                            color: AppColors.c808080.color,
+                                            color: AppColors.c808080,
                                             fontSize: 13),
                                   ),
                                 ),
@@ -126,7 +126,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
               );
             } else {
               return Container(
-                color: AppColors.cF0F0F0.color,
+                color: AppColors.cF0F0F0,
                 width: MediaQuery.of(context).size.width,
                 height: 100,
                 child: Padding(
@@ -168,7 +168,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                     maxLines: 3,
                                     style: AppTextStyles.nunitoSansRegular14
                                         .copyWith(
-                                            color: AppColors.c808080.color,
+                                            color: AppColors.c808080,
                                             fontSize: 13),
                                   ),
                                 ),

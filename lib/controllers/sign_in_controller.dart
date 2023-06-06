@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_app/controllers/base_controller.dart';
-import 'package:furniture_app/screens/home_screen.dart';
-import 'package:furniture_app/screens/sign_up_screen.dart';
-import 'package:furniture_app/services/constants/colors.dart';
+import 'package:furniture_app/services/app_routes.dart';
 import 'package:furniture_app/services/data/database/users.dart';
+import 'package:furniture_app/views/utils/message_components.dart';
 
 class SignInController extends BaseController {
   TextEditingController emailController;
@@ -34,29 +33,16 @@ class SignInController extends BaseController {
     debugPrint(password);
 
     /// user exist:
-    // validation
     for (int i = 0; i < usersList.length; i++) {
       if (usersList[i].email == email && usersList[i].password == password) {
-        await Future.delayed(const Duration(seconds: 2));
         isLoading = false;
         updater!(() {});
-        Navigator.of(context).pushReplacementNamed(HomeScreen.id);
+        AppRoutes.pushReplaceHome(context);
         return;
       }
     }
     isLoading = false;
     updater!(() {});
-    ScaffoldMessenger.of(context).showSnackBar(
-       SnackBar(
-        content: const Text("Wrong email or password!"),
-        backgroundColor: AppColors.c303030.color,
-      ),
-    );
-
-    /// user not found: error message
-  }
-
-  void goToSignUp(BuildContext context) {
-    Navigator.of(context).pushReplacementNamed(SignUpScreen.id);
+    AppMessage.customSnackBar(context: context, content: "Wrong email or password!");
   }
 }

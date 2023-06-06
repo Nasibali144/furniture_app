@@ -58,7 +58,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                 Text(
                   cartItem.product.name,
                   style: AppTextStyles.nunitoSansBold14
-                      .copyWith(color: AppColors.c606060.color),
+                      .copyWith(color: AppColors.c606060),
                 ),
                 const Spacer(flex: 1),
                 SizedBox(
@@ -98,7 +98,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
               Text(
                 "\$ ${widget.controller.cart.carts[widget.index].total}",
                 style: AppTextStyles.nunitoSansBold16
-                    .copyWith(color: AppColors.c303030.color),
+                    .copyWith(color: AppColors.c303030),
               )
             ],
           )
@@ -129,7 +129,7 @@ class _TotalSummState extends State<TotalSumm> {
             Text(
               Strings.total.text,
               style: AppTextStyles.nunitoSansBold20
-                  .copyWith(color: AppColors.c808080.color),
+                  .copyWith(color: AppColors.c808080),
             ),
             const Spacer(
               flex: 1,
@@ -157,7 +157,7 @@ class ComponentButtonPlusMinus extends StatelessWidget {
       child: DecoratedBox(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
-            color: AppColors.cE0E0E0.color),
+            color: AppColors.cE0E0E0),
         child: Transform.scale(scale: 0.6, child: icon),
       ),
     );
