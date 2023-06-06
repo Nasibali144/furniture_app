@@ -68,16 +68,16 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       GestureDetector(
-                        onTap: () => widget.controller.increment(widget.index),
+                        onTap: () =>  widget.controller.increment(widget.index),
                         child: ComponentButtonPlusMinus(icon: SvgIcon.add),
                       ),
                       Text(
-                        "${widget.controller.cart.carts[widget.index].quantity}"
+                        "${ widget.controller.cart.carts[widget.index].quantity}"
                             .padLeft(2, "0"),
                         style: AppTextStyles.nunitoSansBold18,
                       ),
                       GestureDetector(
-                        onTap: () => widget.controller.decrement(widget.index),
+                        onTap: () =>  widget.controller.decrement(widget.index),
                         child: ComponentButtonPlusMinus(icon: SvgIcon.minus),
                       ),
                     ],
@@ -92,11 +92,11 @@ class _CartItemWidgetState extends State<CartItemWidget> {
             children: [
               GestureDetector(
                   onTap: () =>
-                      widget.controller.buttomCardItemDelate(widget.index,context),
+                       widget.controller.buttomCardItemDelate(widget.index,context),
                   child: SvgIcon.cancel),
               const Spacer(flex: 1),
               Text(
-                "\$ ${widget.controller.cart.carts[widget.index].total}",
+                "\$ ${ widget.controller.cart.carts[widget.index].total}",
                 style: AppTextStyles.nunitoSansBold16
                     .copyWith(color: AppColors.c303030),
               )
@@ -135,7 +135,7 @@ class _TotalSummState extends State<TotalSumm> {
               flex: 1,
             ),
             Text(
-              "\$ ${widget.controller.cart.carts.fold(0.0, (totalSum, element) => totalSum += element.total)}",
+              "\$ ${ widget.controller.cart.carts.fold(0.0, (totalSum, element) => totalSum += element.total)}",
               style: AppTextStyles.nunitoSansBold20,
             ),
           ],

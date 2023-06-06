@@ -85,7 +85,7 @@ class _ProductWidgetState extends State<ProductWidget> {
           Column(
             children: [
               GestureDetector(
-                onTap: () => widget.controller.productDelete(widget.index),
+                onTap: () => controller.productDelete(widget.index),
                 child: SizedBox(width: 25, height: 25, child: SvgIcon.cancel),
               ),
               const Spacer(
@@ -100,7 +100,7 @@ class _ProductWidgetState extends State<ProductWidget> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: GestureDetector(
-                  onTap: () => widget.controller.goToCongrats(context),
+                  onTap: () => controller.goToCongrats(context),
                   child: SvgIcon.cart2,
                 ),
               ),

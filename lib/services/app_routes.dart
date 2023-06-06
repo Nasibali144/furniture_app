@@ -4,7 +4,7 @@ import 'package:furniture_app/screens/cart_screen.dart';
 import 'package:furniture_app/screens/check_out_screen.dart';
 import 'package:furniture_app/screens/congrats_screen.dart';
 import 'package:furniture_app/screens/favorite_screen.dart';
-import 'package:furniture_app/screens/home_screen.dart';
+import 'package:furniture_app/screens/main_screen.dart';
 import 'package:furniture_app/screens/notification_screen.dart';
 import 'package:furniture_app/screens/order_screen.dart';
 import 'package:furniture_app/screens/product_screen.dart';
@@ -23,7 +23,7 @@ class AppRoutes {
     if(!isAuth) {
       return BoardingScreen.id;
     } else {
-      return HomeScreen.id;
+      return MainScreen.id;
     }
   }
 
@@ -33,7 +33,7 @@ class AppRoutes {
     CheckOutScreen.id : (context) => const CheckOutScreen(),
     CongratsScreen.id : (context) => const CongratsScreen(),
     FavoriteScreen.id : (context) => const FavoriteScreen(),
-    HomeScreen.id : (context) => const HomeScreen(),
+    MainScreen.id : (context) => const MainScreen(),
     NotificationScreen.id : (context) => const NotificationScreen(),
     OrderScreen.id : (context) => const OrderScreen(),
     ProductScreen.id : (context) => const ProductScreen(),
@@ -53,6 +53,6 @@ class AppRoutes {
   }
 
   static void pushReplaceHome(BuildContext context) {
-    Navigator.of(context).pushReplacementNamed(HomeScreen.id);
+    Navigator.of(context).pushReplacementNamed(MainScreen.id);
   }
 }

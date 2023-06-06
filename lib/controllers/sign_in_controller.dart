@@ -35,6 +35,7 @@ class SignInController extends BaseController {
     /// user exist:
     for (int i = 0; i < usersList.length; i++) {
       if (usersList[i].email == email && usersList[i].password == password) {
+        currentUser = usersList[i];
         isLoading = false;
         updater!(() {});
         AppRoutes.pushReplaceHome(context);

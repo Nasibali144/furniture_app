@@ -3,7 +3,6 @@ import 'package:furniture_app/controllers/sign_in_controller.dart';
 import 'package:furniture_app/services/app_routes.dart';
 import 'package:furniture_app/services/constants/colors.dart';
 import 'package:furniture_app/services/constants/strings.dart';
-import 'package:furniture_app/services/constants/svg_icons.dart';
 import 'package:furniture_app/services/theme/text_styles.dart';
 import 'package:furniture_app/views/auth_components/logo.dart';
 import 'package:furniture_app/views/custom_text_field.dart';

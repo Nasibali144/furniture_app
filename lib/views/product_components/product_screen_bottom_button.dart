@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/controllers/product_controller.dart';
-
-import '../../services/constants/colors.dart';
-import '../../services/constants/strings.dart';
-import '../../services/constants/svg_icons.dart';
+import 'package:furniture_app/services/constants/colors.dart';
+import 'package:furniture_app/services/constants/strings.dart';
+import 'package:furniture_app/services/constants/svg_icons.dart';
 import 'icon_button.dart';
 import 'text_button.dart';
 
