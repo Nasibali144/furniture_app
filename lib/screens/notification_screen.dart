@@ -24,16 +24,32 @@ class _NotificationScreenState extends State<NotificationScreen> {
       /// #appBar
       appBar: const NotificationAppBar(),
       body: ListView.builder(
-        itemExtent: 115,
-        itemCount: notificationDatabase.length,
-        itemBuilder: (context, index) => notificationDatabase[index].data
-                is MessageModel
-            ? Container(
-          color: (notificationDatabase[index].data
-          as MessageModel)
-          .status == "New" ? AppColors.cF0F0F0.color : Colors.white,
+          itemExtent: 115,
+          itemCount: notificationDatabase.length,
+          itemBuilder: (context, index) {
+            if (notificationDatabase[index].data is MessageModel) {
+              return Container(
                 width: MediaQuery.of(context).size.width,
                 height: 120,
+                decoration: BoxDecoration(
+                  color: (notificationDatabase[index].data as MessageModel)
+                              .status ==
+                          "New"
+                      ? AppColors.cF0F0F0.color
+                      : Colors.white,
+                  border: (index + 1 != notificationDatabase.length &&
+                          (notificationDatabase[index].data as MessageModel)
+                                  .status !=
+                              "New" &&
+                          notificationDatabase[index].data is MessageModel &&
+                          notificationDatabase[index + 1].data is MessageModel)
+                      ? Border(
+                          bottom: BorderSide(
+                            color: AppColors.cF0F0F0.color,
+                          ),
+                        )
+                      : null,
+                ),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10, right: 20, top: 8),
                   child: Row(
@@ -107,8 +123,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
                     ],
                   ),
                 ),
-              )
-            : Container(
+              );
+            } else {
+              return Container(
                 color: AppColors.cF0F0F0.color,
                 width: MediaQuery.of(context).size.width,
                 height: 100,
@@ -163,8 +180,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
                     ],
                   ),
                 ),
-              ),
-      ),
+              );
+            }
+          }),
       // bottomNavigationBar: const MyBottomAppBar(),
     );
   }
