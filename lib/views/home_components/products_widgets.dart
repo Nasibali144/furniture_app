@@ -26,53 +26,62 @@ class CustomProductWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Stack(
-          children: [
-            CupertinoButton(
-              padding: EdgeInsets.zero,
-              onPressed: onPressedProduct,
-              child: Container(
-                height: 220,
-                width: MediaQuery.of(context).size.width *.42,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                    image: imageProvider,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 170, left: 122),
-              child: CupertinoButton(
-                onPressed: onPressedCart,
+        Expanded(
+          flex: 4,
+          child: Stack(
+            children: [
+              CupertinoButton(
                 padding: EdgeInsets.zero,
+                onPressed: onPressedProduct,
                 child: Container(
-                  height: 35,
-                  width: 35,
+                  height: double.infinity,
+                  width: double.infinity,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: AppColors.c909090,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(6),
-                    child: widget,
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: imageProvider,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+              Align(
+                alignment: const Alignment(.85,.95),
+                child: CupertinoButton(
+                  onPressed: onPressedCart,
+                  padding: EdgeInsets.zero,
+                  child: Container(
+                    height: 35,
+                    width: 35,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: AppColors.c909090,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(6),
+                      child: widget,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
-        const SizedBox(height: 10),
-         Text(
-          title,
-          style: AppTextStyles.nunitoSansRegular16,
-        ),
-         Text(
-          subTitle,
-          style: AppTextStyles.nunitoSansBold16,
-        ),
+        Expanded(
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              Text(
+                title,
+                style: AppTextStyles.nunitoSansRegular16,
+              ),
+              Text(
+                subTitle,
+                style: AppTextStyles.nunitoSansBold16,
+              ),
+            ],
+          ),
+        )
       ],
     );
   }
