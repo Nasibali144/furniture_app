@@ -1,20 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:furniture_app/controllers/product_controller.dart';
-import 'package:furniture_app/screens/review_screen.dart';
-
-import '../../services/constants/colors.dart';
-import '../../services/constants/strings.dart';
-import '../../services/constants/svg_icons.dart';
-import '../../services/theme/text_styles.dart';
-import 'icon_button.dart';
+import 'package:furniture_app/services/constants/colors.dart';
+import 'package:furniture_app/services/constants/strings.dart';
+import 'package:furniture_app/services/constants/svg_icons.dart';
+import 'package:furniture_app/services/theme/text_styles.dart';
+import 'package:furniture_app/views/product_components/icon_button.dart';
 
 class ProductScreenData extends StatelessWidget {
+  final ProductController controller;
   const ProductScreenData({
     super.key,
     required this.controller,
   });
-
-  final ProductController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -23,16 +20,16 @@ class ProductScreenData extends StatelessWidget {
     return Expanded(
       flex: MediaQuery.of(context).size.height > 900 ? 5 : 6,
       child: Padding(
-        padding: EdgeInsets.only(
-            left: 25 * width,
-            right: 25 * width,
-            top: 25 * height,
-            bottom: 25 * height),
+        padding: EdgeInsets.symmetric(
+          horizontal: 25 * width,
+          vertical: 25 * height,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
             Text(
-              Strings.minimalStand.text,
+              controller.product.name,
               style: AppTextStyles.gelasioMedium24,
             ),
             SizedBox(height: 10 * height),
@@ -91,13 +88,12 @@ class ProductScreenData extends StatelessWidget {
                 ),
                 SizedBox(width: 20 * width),
                 GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).pushNamed(ReviewScreen.id);
-                  },
+                  onTap: () => controller.goToReview(context),
                   child: Text(
-                    "(50 reviews)",
-                    style: AppTextStyles.nunitoSansBold14
-                        .copyWith(color: AppColors.c808080),
+                    "(${controller.product.review.length} reviews)",
+                    style: AppTextStyles.nunitoSansBold14.copyWith(
+                      color: AppColors.c808080,
+                    ),
                   ),
                 ),
               ],

@@ -17,7 +17,7 @@ class FavoriteController extends BaseController{
 
   FavoriteController({this.updater});
   void productDelete(int index){
-    productsList.removeAt(index);
+    products.removeAt(index);
     updater!((){});
   }
 }

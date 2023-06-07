@@ -35,6 +35,7 @@ class _ProductScreenBottomButtonState extends State<ProductScreenBottomButton> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            ///
             AppIconButton(
               width: 60 * width,
               height: 60 * height,
@@ -46,6 +47,7 @@ class _ProductScreenBottomButtonState extends State<ProductScreenBottomButton> {
                   ? AppColors.c303030
                   : AppColors.cE0E0E0.withOpacity(0.3),
             ),
+            ///
             AppTextButton(
               label: Strings.addToCart.text,
               onPress: () => widget.controller.addToCard(context),

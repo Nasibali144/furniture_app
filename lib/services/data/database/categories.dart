@@ -1,4 +1,15 @@
+import 'package:flutter/material.dart';
 import 'package:furniture_app/models/category_model.dart';
+import 'package:furniture_app/services/constants/icons.dart';
+
+final category0 = Category(
+  id: "00",
+  name: "Popular",
+  description: "Desc",
+  createdAt: "2022/2/12",
+  modifyAt: "2022/2/12",
+  icon: CustomIcons.popular.path,
+);
 
 final category1 = Category(
   id: "01",
@@ -6,7 +17,7 @@ final category1 = Category(
   description: "Desc",
   createdAt: "2022/2/12",
   modifyAt: "2022/2/12",
-  icon: "assets/icons/ic_product.png",
+  icon: CustomIcons.chair.path,
 );
 final category2 = Category(
   id: "02",
@@ -14,34 +25,35 @@ final category2 = Category(
   description: "Desc",
   createdAt: "2022/2/12",
   modifyAt: "2022/2/12",
-  icon: "assets/icons/ic_product.png",
+  icon: CustomIcons.table.path,
 );
 final category3 = Category(
-  id: "02",
+  id: "03",
   name: "Armchair",
   description: "Desc",
   createdAt: "2022/2/12",
   modifyAt: "2022/2/12",
-  icon: "assets/icons/ic_product.png",
+  icon: CustomIcons.armchair.path,
 );
 final category4 = Category(
-  id: "02",
+  id: "04",
   name: "Bed",
   description: "Desc",
   createdAt: "2022/2/12",
   modifyAt: "2022/2/12",
-  icon: "assets/icons/ic_product.png",
+  icon: CustomIcons.bed.path,
 );
 final category5 = Category(
-  id: "02",
+  id: "05",
   name: "Lamb",
   description: "Desc",
   createdAt: "2022/2/12",
   modifyAt: "2022/2/12",
-  icon: "assets/icons/ic_product.png",
+  icon: CustomIcons.lamp.path,
 );
 
 final categories = [
+  category0,
   category1,
   category2,
   category3,

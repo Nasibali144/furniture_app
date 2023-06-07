@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:furniture_app/controllers/favorite_controller.dart';
+import 'package:furniture_app/controllers/data_controller/cart_manager.dart';
+import 'package:furniture_app/services/app_routes.dart';
+import 'package:furniture_app/services/constants/colors.dart';
 import 'package:furniture_app/services/constants/svg_icons.dart';
+import 'package:furniture_app/services/theme/text_styles.dart';
 
 class AppBarComponent extends StatelessWidget implements PreferredSizeWidget {
   final Widget title;
   final Widget leading;
   final bool action;
   final void Function() leadingPressed;
-  final FavoriteController? controller;
 
   const AppBarComponent({
     Key? key,
@@ -15,7 +17,6 @@ class AppBarComponent extends StatelessWidget implements PreferredSizeWidget {
     required this.leading,
     required this.action,
     required this.leadingPressed,
-    this.controller,
   }) : super(key: key);
 
   @override
@@ -34,10 +35,13 @@ class AppBarComponent extends StatelessWidget implements PreferredSizeWidget {
       actions: action
           ? [
               GestureDetector(
-                onTap: () => controller,
+                onTap: () => AppRoutes.pushCart(context),
                 child: Padding(
                   padding: const EdgeInsets.all(12.5),
-                  child: SvgIcon.cart,
+                  child: Badge(
+                    label: Text("${cartManager.cart.carts.length > 9 ? "9+" : cartManager.cart.carts.length}", style: AppTextStyles.nunitoSansBold12.copyWith(color: AppColors.cFFFFFF)),
+                    child: SvgIcon.cart,
+                  ),
                 ),
               ),
             ]

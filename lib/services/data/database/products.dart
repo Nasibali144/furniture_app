@@ -1525,7 +1525,7 @@ final product64 = Product(
 );
 
 
-final productsList = [
+final products = [
   product1,
   product2,
   product3,

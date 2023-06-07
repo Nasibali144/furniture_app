@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_app/controllers/cart_controller.dart';
+import 'package:furniture_app/controllers/data_controller/cart_manager.dart';
 import 'package:furniture_app/models/cart_item_model.dart';
 import 'package:furniture_app/models/cart_model.dart';
 import 'package:furniture_app/models/category_model.dart';
@@ -23,149 +24,12 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  CartModel cart = CartModel(
-    id: "01pwq",
-    userId: "01",
-    createdAt: "asd",
-    modifyAt: "asdas0",
-    carts: [
-      CartItem(
-        id: "01",
-        product: Product(
-          id: "01",
-          name: "Mebel",
-          desc: "asdasdas asdasd",
-          createdAt: "",
-          modifyAt: "",
-          images: {
-            0: ["assets/images/img_product_1.png"]
-          },
-          colors: [],
-          sku: "",
-          category: Category(
-              id: "01",
-              name: "Mebel",
-              description: "dsa",
-              createdAt: "asd",
-              modifyAt: "asd",
-              icon: "asd"),
-          price: 50,
-          review: [],
-          isFavorite: false,
-          totalQuantity: {},
-        ),
-        total: 250,
-        createAt: "",
-        modifyAt: "",
-        userId: "123",
-        quantity: 5,
-        color: 0,
-      ),
-      CartItem(
-        color: 0,
-        id: "02",
-        product: Product(
-          id: "02",
-          name: "Mashina",
-          desc: "asdasdas asdasd",
-          createdAt: "",
-          modifyAt: "",
-          images: {
-            0: ["assets/images/img_product_9.png"]
-          },
-          colors: [],
-          sku: "",
-          category: Category(
-              id: "01",
-              name: "Mebel",
-              description: "dsa",
-              createdAt: "asd",
-              modifyAt: "asd",
-              icon: "asd"),
-          price: 50,
-          review: [],
-          isFavorite: false,
-          totalQuantity: {},
-        ),
-        total: 250,
-        createAt: "",
-        modifyAt: "",
-        userId: "123",
-        quantity: 5,
-      ),
-      CartItem(
-        color: 0,
-        id: "03",
-        product: Product(
-          id: "03",
-          name: "Mashina",
-          desc: "asdasdas asdasd",
-          createdAt: "",
-          modifyAt: "",
-          images: {
-            0: ["assets/images/img_product_9.png"]
-          },
-          colors: [],
-          sku: "",
-          category: Category(
-              id: "01",
-              name: "Mebel",
-              description: "dsa",
-              createdAt: "asd",
-              modifyAt: "asd",
-              icon: "asd"),
-          price: 50,
-          review: [],
-          isFavorite: false,
-          totalQuantity: {},
-        ),
-        total: 250,
-        createAt: "",
-        modifyAt: "",
-        userId: "123",
-        quantity: 5,
-      ),
-      CartItem(
-        color: 0,
-        id: "04",
-        product: Product(
-          id: "04",
-          name: "Mashina",
-          desc: "asdasdas asdasd",
-          createdAt: "",
-          modifyAt: "",
-          images: {
-            0: ["assets/images/img_product_9.png"]
-          },
-          colors: [],
-          sku: "",
-          category: Category(
-              id: "01",
-              name: "Mebel",
-              description: "dsa",
-              createdAt: "asd",
-              modifyAt: "asd",
-              icon: "asd"),
-          price: 50,
-          review: [],
-          isFavorite: false,
-          totalQuantity: {},
-        ),
-        total: 250,
-        createAt: "",
-        modifyAt: "",
-        userId: "123",
-        quantity: 5,
-      ),
-    ],
-    amount: 1000,
-    total: 1000,
-  );
+
   late final CartController controller;
 
   @override
   void initState() {
-    controller = CartController(cart: cart, updater: setState);
+    controller = CartController(updater: setState);
     super.initState();
   }
 
@@ -213,7 +77,7 @@ class _CartScreenState extends State<CartScreen> {
                             index: index,
                           );
                         },
-                        itemCount: controller.cart.carts.length,
+                        itemCount: cartManager.cart.carts.length,
                         separatorBuilder: (BuildContext context, int index) {
                           return const Padding(
                             padding: EdgeInsets.symmetric(vertical: 8.0),

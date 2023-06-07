@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_app/controllers/base_controller.dart';
+import 'package:furniture_app/controllers/data_controller/cart_manager.dart';
 import 'package:furniture_app/services/app_routes.dart';
 import 'package:furniture_app/services/data/database/users.dart';
 import 'package:furniture_app/views/utils/message_components.dart';
@@ -37,6 +38,7 @@ class SignInController extends BaseController {
       if (usersList[i].email == email && usersList[i].password == password) {
         currentUser = usersList[i];
         isLoading = false;
+        cartManager = CartManager(usersList[i].userId);
         updater!(() {});
         AppRoutes.pushReplaceHome(context);
         return;

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:furniture_app/controllers/cart_controller.dart';
+import 'package:furniture_app/controllers/data_controller/cart_manager.dart';
 import 'package:furniture_app/models/cart_item_model.dart';
 import 'package:furniture_app/services/constants/colors.dart';
 import 'package:furniture_app/services/constants/strings.dart';
@@ -28,7 +29,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
 
   @override
   void initState() {
-    cartItem = widget.controller.cart.carts[widget.index];
+    cartItem = cartManager.cart.carts[widget.index];
     super.initState();
   }
 
@@ -72,7 +73,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                         child: ComponentButtonPlusMinus(icon: SvgIcon.add),
                       ),
                       Text(
-                        "${ widget.controller.cart.carts[widget.index].quantity}"
+                        "${ cartManager.cart.carts[widget.index].quantity}"
                             .padLeft(2, "0"),
                         style: AppTextStyles.nunitoSansBold18,
                       ),
@@ -96,7 +97,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                   child: SvgIcon.cancel),
               const Spacer(flex: 1),
               Text(
-                "\$ ${ widget.controller.cart.carts[widget.index].total}",
+                "\$ ${ cartManager.cart.carts[widget.index].total}",
                 style: AppTextStyles.nunitoSansBold16
                     .copyWith(color: AppColors.c303030),
               )
@@ -135,7 +136,7 @@ class _TotalSummState extends State<TotalSumm> {
               flex: 1,
             ),
             Text(
-              "\$ ${ widget.controller.cart.carts.fold(0.0, (totalSum, element) => totalSum += element.total)}",
+              "\$ ${ cartManager.cart.carts.fold(0.0, (totalSum, element) => totalSum += element.total)}",
               style: AppTextStyles.nunitoSansBold20,
             ),
           ],

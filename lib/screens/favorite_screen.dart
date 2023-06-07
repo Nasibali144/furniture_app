@@ -73,7 +73,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.68,
                 child: ListView.separated(
-                  itemCount: productsList.length,
+                  itemCount: products.length,
                   separatorBuilder: (BuildContext context, int index) =>
                       const Divider(
                     thickness: 2,
@@ -84,7 +84,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                     return ProductWidget(
                         index: index,
                         controller: controller,
-                        product: productsList[index]);
+                        product: products[index]);
                   },
                 ),
               ),

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CustomTabBarWidget extends StatefulWidget {
+class CustomTabBarWidget extends StatelessWidget {
   final void Function()? onPressed;
   final Color color;
   final String text;
   final TextStyle style;
   final Widget widget;
 
-   const CustomTabBarWidget({
+  const CustomTabBarWidget({
     Key? key,
     required this.onPressed,
     required this.color,
@@ -15,31 +15,26 @@ class CustomTabBarWidget extends StatefulWidget {
     required this.style,
     required this.widget,
   }) : super(key: key);
-
-  @override
-  State<CustomTabBarWidget> createState() => _CustomTabBarWidgetState();
-}
-
-class _CustomTabBarWidgetState extends State<CustomTabBarWidget> {
+  
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         TextButton(
-          onPressed:
-            widget.onPressed,
+          onPressed: onPressed,
           style: TextButton.styleFrom(
-            backgroundColor: widget.color,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+            backgroundColor: color,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
             minimumSize: const Size(50, 50),
           ),
-          child: widget.widget,
+          child: widget,
         ),
         const SizedBox(height: 5),
         Text(
-          widget.text,
-          style: widget.style,
+          text,
+          style: style,
         ),
       ],
     );

@@ -18,66 +18,17 @@ class ProductScreen extends StatefulWidget {
 
 class _ProductScreenState extends State<ProductScreen> {
   late final ProductController controller;
-  Product product = Product(
-    id: "s123m123",
-    name: "Minimal Stand",
-    desc:
-        "Minimal Stand is made of by natural wood. The design that is very simple and minimal. This is truly one of the best furnitures in any family for now. With 3 different colors, you can easily select the best match for your home. ",
-    createdAt: "2022/12/02",
-    modifyAt: "2023/12/02",
-    images: {
-      0: [
-        "assets/images/img_product_9.png",
-        "assets/images/img_product_10.png",
-        "assets/images/img_product_11.png",
-      ],
-      1: [
-        "assets/images/img_product_12.png",
-        "assets/images/img_product_13.png",
-        "assets/images/img_product_8.png",
-      ],
-      2: [
-        "assets/images/img_product_7.png",
-        "assets/images/img_product_6.png",
-        "assets/images/img_product_5.png",
-      ],
-      3: [
-        "assets/images/img_product_7.png",
-        "assets/images/img_product_6.png",
-        "assets/images/img_product_5.png",
-      ],
-    },
-    colors: [
-      AppColors.c808080.value,
-      AppColors.cB4916C.value,
-      AppColors.cE4CBAD.value,
-      AppColors.cE4CBAD.value,
-    ],
-    sku: "12234567765",
-    category: Category(
-        id: "as12",
-        name: "Mebel",
-        description: "Mebellar Joyi",
-        createdAt: "asd",
-        modifyAt: 'DAs',
-        icon: ""),
-    price: 50,
-    review: [
-      Review(
-          id: "01",
-          productId: "s123m123",
-          userId: "12312sdcsd",
-          createdAt: "sa",
-          comment: "Chotki",
-          rating: "zor"),
-    ],
-    isFavorite: false,
-    totalQuantity: {},
-  );
+
   @override
   void initState() {
-    controller = ProductController(updater: setState, product: product);
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final product = ModalRoute.of(context)!.settings.arguments as Product;
+    controller = ProductController(updater: setState, product: product);
   }
 
   @override
@@ -94,17 +45,17 @@ class _ProductScreenState extends State<ProductScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //
+              /// #image
               ProductScreenImage(
-                // backButton: () => controller.btnBack(context),
                 controller: controller,
               ),
 
-              //
+              /// data
               ProductScreenData(
                 controller: controller,
               ),
 
+              /// buttons
               ProductScreenBottomButton(
                 controller: controller,
               ),

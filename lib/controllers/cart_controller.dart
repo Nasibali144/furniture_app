@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:furniture_app/models/cart_model.dart';
+import 'package:furniture_app/controllers/data_controller/cart_manager.dart';
 import 'package:furniture_app/services/constants/colors.dart';
 import 'package:furniture_app/services/theme/text_styles.dart';
 
@@ -9,9 +9,8 @@ class CartController extends BaseController {
   TextEditingController controller;
   void Function(void Function())? updater;
   bool isLoading = false;
-  CartModel cart;
 
-  CartController({this.updater, required this.cart})
+  CartController({this.updater})
       : controller = TextEditingController();
 
   @override
@@ -23,16 +22,16 @@ class CartController extends BaseController {
   void decrement(
     int index,
   ) {
-    if (cart.carts[index].quantity > 1) {
-      cart.carts[index].quantity--;
-      cart.carts[index].total -= cart.carts[index].product.price;
+    if (cartManager.cart.carts[index].quantity > 1) {
+      cartManager.cart.carts[index].quantity--;
+      cartManager.cart.carts[index].total -= cartManager.cart.carts[index].product.price;
       updater!(() {});
     }
   }
 
   void increment(int index) {
-    cart.carts[index].quantity++;
-    cart.carts[index].total += cart.carts[index].product.price;
+    cartManager.cart.carts[index].quantity++;
+    cartManager.cart.carts[index].total += cartManager.cart.carts[index].product.price;
 
     updater!(() {});
   }
@@ -51,7 +50,7 @@ class CartController extends BaseController {
           actions: <Widget>[
             TextButton(
               onPressed: () {
-                cart.carts.removeAt(index);
+                cartManager.cart.carts.removeAt(index);
                 Navigator.pop(context);
                 updater!(() {});
               },
